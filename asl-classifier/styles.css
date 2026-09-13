@@ -1,0 +1,381 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   ASL Holistic Translator — Taipy CSS Theme
+   Dark glassmorphism design with purple/green accent palette
+   ──────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────────────────── */
+:root {
+  --bg-base:      #080814;
+  --bg-card:      #10101e;
+  --bg-card-hover:#141428;
+  --bg-glass:     rgba(255,255,255,0.04);
+  --border:       rgba(255,255,255,0.08);
+  --border-accent:rgba(124,58,237,0.5);
+
+  --purple:       #7c3aed;
+  --purple-light: #a855f7;
+  --green:        #22c55e;
+  --green-dark:   #16a34a;
+  --red:          #ef4444;
+  --amber:        #f59e0b;
+  --blue:         #3b82f6;
+
+  --text-primary: #f0f0ff;
+  --text-secondary:#a0a0c0;
+  --text-muted:   #606080;
+
+  --radius:       12px;
+  --radius-lg:    18px;
+  --shadow:       0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow:  0 0 40px rgba(124,58,237,0.15);
+}
+
+/* ── Reset & Base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -20%, rgba(124,58,237,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(34,197,94,0.06) 0%, transparent 60%);
+}
+
+/* ── Layout containers ─────────────────────────────────────────────────── */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+}
+
+.main-layout {
+  margin-top: 20px;
+  align-items: flex-start;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.app-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, var(--purple-light), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* ── Status pill ───────────────────────────────────────────────────────── */
+.status-pill {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: var(--green);
+  white-space: nowrap;
+}
+
+/* ── Card ──────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 16px;
+}
+
+.card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow), var(--shadow-glow);
+}
+
+.card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 14px;
+}
+
+/* ── Camera feed ───────────────────────────────────────────────────────── */
+.camera-card {
+  position: relative;
+}
+
+.camera-feed {
+  display: block;
+  width: 100% !important;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* ── Buffer bar ────────────────────────────────────────────────────────── */
+.buffer-row {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.buffer-bar .taipy-progress {
+  height: 6px !important;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08) !important;
+}
+
+.buffer-bar .taipy-progress-bar {
+  background: linear-gradient(90deg, var(--purple), var(--green)) !important;
+  border-radius: 3px;
+  transition: width 0.15s ease;
+}
+
+/* ── Prediction card ───────────────────────────────────────────────────── */
+.prediction-card {
+  text-align: center;
+  padding: 28px 20px 20px;
+}
+
+.sign-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 5.5rem !important;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -3px;
+  background: linear-gradient(135deg, #fff 0%, var(--purple-light) 60%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+/* ── Badges ────────────────────────────────────────────────────────────── */
+.badge-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 8px;
+}
+
+.badge-type {
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(124,58,237,0.2);
+  border: 1px solid rgba(124,58,237,0.5);
+  color: var(--purple-light);
+}
+
+.badge-conf {
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.4);
+  color: var(--green);
+}
+
+/* ── Confidence bar ────────────────────────────────────────────────────── */
+.conf-bar .taipy-progress {
+  height: 8px !important;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.06) !important;
+  margin: 4px 0 16px;
+}
+
+.conf-bar .taipy-progress-bar {
+  background: linear-gradient(90deg, var(--purple), var(--green)) !important;
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+/* ── Sentence card ─────────────────────────────────────────────────────── */
+.sentence-card {
+  min-height: 100px;
+}
+
+.sentence-display {
+  font-size: 1.3rem !important;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 56px;
+  word-break: break-word;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+/* ── Settings card ─────────────────────────────────────────────────────── */
+.settings-card {
+  padding: 16px 20px;
+}
+
+.slider-row {
+  margin-bottom: 12px;
+}
+
+.thresh-slider {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.toggle-auto {
+  margin-top: 8px;
+}
+
+/* ── History table ─────────────────────────────────────────────────────── */
+.history-card {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.history-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.history-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.history-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+}
+
+.history-table tr:first-child td {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+.btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.btn-row.center {
+  justify-content: center;
+}
+
+button,
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.02em;
+}
+
+button:hover { opacity: 0.88; transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--purple-light)) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.35);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.07) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.12) !important;
+  color: var(--text-primary) !important;
+}
+
+.btn-danger {
+  background: rgba(239,68,68,0.15) !important;
+  color: var(--red) !important;
+  border: 1px solid rgba(239,68,68,0.3) !important;
+}
+
+.btn-danger:hover {
+  background: rgba(239,68,68,0.25) !important;
+}
+
+.small { font-size: 0.72rem !important; padding: 5px 12px !important; }
+
+/* ── Labels ────────────────────────────────────────────────────────────── */
+.label-xs {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.muted { color: var(--text-muted); }
+
+/* ── Right column ──────────────────────────────────────────────────────── */
+.right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .main-layout { flex-direction: column !important; }
+  .sign-display { font-size: 4rem !important; }
+  .app-header h1 { font-size: 1.4rem; }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple); }
